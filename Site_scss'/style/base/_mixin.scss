@@ -1,0 +1,32 @@
+@mixin title-card {
+    width: 300px;
+    height: 400px;
+}
+@mixin d-flex($display, $align-items, $justify-content) {
+    display: $display;
+    align-items: $align-items;
+    justify-content: $justify-content;
+}
+@mixin buttons-step {
+    font-size: 10px;
+    font-family: "Montserrat";
+    width: 70px;
+    height: 20px;
+    border-radius: 40px;
+    background: $button-backgraund;
+    color: white;
+    border: none;
+    text-align: center;
+    letter-spacing: 2px;
+    line-height: 23px;
+}
+@mixin tablet {
+    @media (max-width: 920px) {
+        @content;
+    }
+}
+@mixin mobile {
+    @media (max-width: 450px) {
+        @content;
+    }
+}

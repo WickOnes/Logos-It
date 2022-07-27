@@ -4,42 +4,739 @@
 @import "base/font";
 
 body {
-    display: flex;
-    justify-content: center;
+    @include d-flex(flex, center, center);
 }
 
 .content {
     margin-top: 51px;
     width: 1440px;
+    @include d-flex(flex, center, center);
+    flex-direction: column;
+    @include tablet {
+        width: 768px;
+    }
+    @include mobile {
+        width: 300px;
+    }
 }
 
 .head {
     width: 100%;
     height: 700px;
     background-image: url(../img/HeadaerandPromo.png);
-    display: flex;
-    justify-content: center;
+    background-position: center;
+    @include d-flex(flex, center, none);
+    flex-direction: column;
+    @include mobile {
+        height: 540px;
+        background-size: cover;
+    }
     &__menu {
-        width: 925px;
-        display: flex;
-        justify-content: space-between;
-        margin-top: 45px;
+        width: 945px;
+        height: 183px;
+        @include d-flex(flex, none, space-between);
+        margin-top: 42px;
+        @include tablet {
+            width: 668px;
+        }
+        @include mobile {
+            width: 300px;
+            margin-top: 20px;
+            flex-direction: column-reverse;
+            align-items: center;
+        }
         &__logo {
             font-family: Montserrat;
             font-weight: 700;
             letter-spacing: 2px;
             font-size: 18px;
-            color: white;
+            color: $text-color;
+            line-height: 35px;
+            @include mobile {
+                margin-top: 0px;
+                line-height: 70px;
+            }
         }
         &__buttons {
             display: flex;
-            justify-content: space-between;
-            width: 150px;
+            width: 202px;
             height: 5%;
+            @include tablet {
+                width: 160px;
+            }
             button {
-                color:white;
-                border: none;
+                color: $text-color;
                 background: none;
+                font-family: "Montserrat";
+                font-style: normal;
+                font-weight: 400;
+                font-size: 14px;
+            }
+            &__login {
+                border: none;
+                line-height: 33px;
+                width: 56px;
+            }
+            &__sign {
+                margin-left: 15px;
+                width: 90px;
+                border: 2px solid $text-color;
+                border-radius: 40px;
+                height: 35px;
+            }
+        }
+    }
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &__title {
+            width: 480px;
+            text-align: center;
+            color: $text-color;
+            font-family: "Montserrat";
+            font-weight: 700;
+            font-size: 52px;
+            line-height: 63px;
+            letter-spacing: 1px;
+            @include mobile {
+                font-size: 30px;
+                width: 300px;
+                line-height: 40px;
+                text-align: center;
+            }
+        }
+        &__text {
+            margin-top: 20px;
+            color: $text-color;
+            font-family: "Roboto";
+            font-style: normal;
+            font-weight: 300;
+            font-size: 25px;
+            text-align: center;
+            letter-spacing: -0.5px;
+            @include mobile {
+                font-size: 18px;
+                width: 75%;
+                margin-top: 0px;
+                letter-spacing: 0.7px;
+            }
+        }
+        &__button {
+            width: 225px;
+            height: 40px;
+            margin-left: 126px;
+            margin-top: 28px;
+            color: $text-color;
+            background: $button-backgraund;
+            border: none;
+            border-radius: 40px;
+            text-align: center;
+            font-family: "Montserrat";
+            font-weight: 700;
+            font-size: 14px;
+            @include mobile {
+                margin: 0;
+                margin-top: 10px;
+                width: 280px;
+            }
+        }
+    }
+}
+.main {
+    width: 940px;
+    margin-top: 86px;
+    @include tablet {
+        width: 768px;
+    }
+    @include mobile {
+        margin-top: 25px;
+    }
+    &__title {
+        color: $color-title;
+        text-align: center;
+        font-family: "Montserrat";
+        font-weight: bold;
+        font-size: 27px;
+        @include tablet {
+            height: 35px;
+            font-size: 22px;
+            letter-spacing: 0.5px;
+            margin-top: 5px;
+        }
+    }
+    .cards {
+        margin-top: 29px;
+        @include d-flex(flex, none, space-between);
+        @include tablet {
+            @include d-flex(flex, end, space-around);
+        }
+        @include mobile {
+            margin-top: 4px;
+            flex-direction: column;
+            align-items: center;
+            height: 755px;
+        }
+
+        &__card {
+            @include title-card;
+            @include d-flex(flex, end, center);
+            @include tablet {
+                width: 236px;
+            }
+            @include mobile {
+                width: 300px;
+                height: 240px;
+                display: flex;
+                align-items: center;
+            }
+
+            &_img1 {
+                background-image: url("../img/Step\ 1.png");
+            }
+            &_img2 {
+                background-image: url("../img/Step\ 2.png");
+            }
+            &_img3 {
+                background-image: url("../img/Step\ 1\ image.png");
+            }
+            &__button-step {
+                @include buttons-step;
+            }
+            .card-content {
+                height: 46%;
+                width: 83%;
+                color: $text-color;
+                @include tablet {
+                    height: 48%;
+                }
+                @include mobile {
+                    width: 87%;
+                }
+                &__big {
+                    font-size: 24px;
+                    font-family: "Montserrat";
+                    font-weight: bold;
+                    line-height: 25px;
+                    margin-top: 21px;
+                    letter-spacing: 0.8px;
+                    @include tablet {
+                        margin-top: 42px;
+                        line-height: 14px;
+                    }
+                }
+                &__small {
+                    margin-top: 26px;
+                    font-family: "Roboto";
+                    font-size: 14px;
+                    line-height: 14px;
+                    letter-spacing: 0.1px;
+                    font-weight: lighter;
+                    &_centr {
+                        margin-top: 20px;
+                    }
+                }
+                &_centr {
+                    height: 150px;
+                    @include tablet {
+                        height: 43%;
+                    }
+                    @include mobile {
+                        height: 47%;
+                    }
+                    button {
+                        @include tablet {
+                            margin-top: 30px;
+                        }
+                    }
+                }
+                &_big-centr {
+                    @include tablet {
+                        margin-top: 13px;
+                    }
+                    @include mobile {
+                        margin-top: 29px;
+                    }
+                }
+            }
+        }
+    }
+}
+.partner {
+    margin-top: 87px;
+    @include d-flex(flex, center, none);
+    flex-direction: column;
+    @include tablet {
+        width: 768px;
+    }
+    @include mobile {
+        margin-top: 20px;
+    }
+
+    &__title {
+        font-family: "Montserrat";
+        font-weight: bold;
+        font-size: 26px;
+        letter-spacing: 0.8px;
+        @include tablet {
+            margin-top: 5px;
+            font-size: 22px;
+            letter-spacing: 0.4px;
+        }
+        @include mobile {
+            width: 300px;
+            text-align: center;
+            line-height: 30px;
+        }
+    }
+    .partner-people {
+        @include d-flex(flex, none, center);
+        width: 100%;
+        margin-top: 30px;
+        @include tablet {
+            flex-wrap: wrap;
+        }
+        @include mobile {
+            margin-top: 12px;
+            flex-direction: column;
+            align-items: center;
+        }
+        .partnet-tablet {
+            display: flex;
+            justify-content: center;
+            @include tablet {
+                flex-direction: column;
+                width: 252px;
+            }
+            @include mobile {
+                height: 455px;
+            }
+        }
+        img {
+            width: 120px;
+            height: 120px;
+        }
+        &__card {
+            @include d-flex(flex, center, none);
+            flex-direction: column;
+            width: 220px;
+            @include tablet {
+                height: 260px;
+                width: 100%;
+            }
+        }
+        &__name {
+            margin-top: 18px;
+            letter-spacing: 0.2px;
+            font-family: "Montserrat";
+            font-weight: bold;
+            font-size: 14px;
+        }
+        &__info {
+            margin-top: 18px;
+            line-height: 14px;
+            text-align: center;
+            font-family: "Roboto";
+            font-weight: 300;
+            font-size: 14px;
+            &_down {
+                margin-top: 25px;
+                @include tablet {
+                    margin-top: 18px;
+                }
+            }
+        }
+        &__button {
+            width: 180px;
+            height: 40px;
+            margin-top: 35px;
+            background: $text-color;
+            border: 2px solid $button-backgraund;
+            border-radius: 40px;
+            font-family: "Montserrat";
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 17px;
+            color: #ff4e50;
+            @include tablet {
+                margin-top: -12px;
+            }
+            @include mobile {
+                margin-top: 12px;
+                width: 280px;
+            }
+        }
+    }
+}
+
+.activity {
+    @include tablet {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    &__main {
+        margin-top: 31px;
+        @include tablet {
+            margin-top: 13px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            width: 97%;
+        }
+    }
+    &__title {
+        margin-top: 85px;
+        text-align: center;
+        font-family: "Montserrat";
+        font-weight: bold;
+        font-size: 26px;
+        letter-spacing: 1px;
+        @include tablet {
+            margin-top: 90px;
+            font-size: 22px;
+            letter-spacing: 0.6px;
+        }
+        @include mobile {
+            margin-top: 30px;
+            width: 200px;
+            height: 70px;
+        }
+    }
+    .variety {
+        @include d-flex(flex, none, space-between);
+        margin-top: 20px;
+        @include mobile {
+            flex-direction: column;
+            align-items: center;
+            justify-content: none;
+            margin-top: 0px;
+        }
+        &__img-small {
+            width: 300px;
+            height: 310px;
+            @include d-flex(flex, center, center);
+            @include tablet {
+                width: 236px;
+                p {
+                    width: 80%;
+                }
+            }
+            @include mobile {
+                width: 300px;
+                height: 120px;
+                margin-top: 10px;
+            }
+        }
+        &__img-big {
+            width: 620px;
+            height: 310px;
+            @include d-flex(flex, center, center);
+            @include tablet {
+                width: 492px;
+                p {
+                    width: 80%;
+                }
+            }
+            @include mobile {
+                width: 300px;
+                height: 120px;
+                margin-top: 10px;
+            }
+        }
+        &_img1 {
+            background-image: url("../img/Sport.png");
+            @include tablet {
+                background-position-x: -40px;
+            }
+            @include mobile {
+                background-size: 300px 200px;
+                background-repeat: no-repeat;
+                background-position-y: -40px;
+                background-position-x: 0px;
+            }
+        }
+        &_img2 {
+            background-image: url("../img/Healath.png");
+            @include tablet {
+                background-position-x: -40px;
+            }
+            @include mobile {
+                background-size: 300px 200px;
+                background-repeat: no-repeat;
+                background-position-y: -40px;
+                background-position-x: 0px;
+            }
+        }
+        &_img3 {
+            background-image: url("../img/Extreme.png");
+            @include tablet {
+                background-position-x: -20px;
+            }
+            @include mobile {
+                background-size: 300px 200px;
+                background-repeat: no-repeat;
+                background-position-y: -40px;
+                background-position-x: 0px;
+            }
+            &_text {
+                width: 70%;
+                line-height: 27px;
+            }
+        }
+        &_img4 {
+            background-image: url("../img/Games.png");
+            @include tablet {
+                background-position-x: -30px;
+            }
+            @include mobile {
+                background-size: 300px 200px;
+                background-repeat: no-repeat;
+                background-position-y: -40px;
+                background-position-x: 0px;
+            }
+        }
+        &_img5 {
+            background-image: url("../img/Culture.png");
+            @include tablet {
+                background-position-x: -68px;
+            }
+            @include mobile {
+                background-size: 300px 200px;
+                background-repeat: no-repeat;
+                background-position-y: -40px;
+                background-position-x: 0px;
+            }
+        }
+        &_img6 {
+            background-image: url("../img/Culture\ Copy.png");
+            @include mobile {
+                background-size: 300px 200px;
+                background-repeat: no-repeat;
+                background-position-y: -40px;
+                background-position-x: 0px;
+            }
+        }
+        &_img7 {
+            background-image: url("../img/Games\ Copy.png");
+        }
+        .mobile {
+            width: 100%;
+        }
+        p {
+            text-align: center;
+            font-family: "Montserrat";
+            font-style: normal;
+            font-weight: 700;
+            font-size: 22px;
+            color: $text-color;
+            letter-spacing: 0.5px;
+            @include mobile {
+                width: 65%;
+            }
+        }
+    }
+}
+
+.create {
+    @include d-flex(flex, center, center);
+    margin-top: 86px;
+    flex-direction: column;
+    &__title {
+        font-family: "Montserrat";
+        font-weight: bold;
+        font-size: 26px;
+        letter-spacing: 1px;
+        @include tablet {
+            font-size: 22px;
+            letter-spacing: 0.6px;
+            margin-top: 2px;
+        }
+        @include mobile {
+            margin-top: -55px;
+            width: 250px;
+            text-align: center;
+            line-height: 28px;
+        }
+    }
+    &__question {
+        margin-top: 44px;
+        font-family: "Roboto";
+        font-weight: 300;
+        font-size: 18px;
+        @include mobile {
+            margin-top: 13px;
+        }
+    }
+    &__input-block {
+        @include d-flex(flex, none, space-between);
+        margin-top: 18px;
+        width: 480px;
+        @include mobile {
+            align-items: center;
+            flex-direction: column;
+            height: 90px;
+            margin-top: 8px;
+        }
+        &__input {
+            width: 299px;
+            height: 40px;
+            @include mobile {
+                width: 280px;
+            }
+        }
+        input::placeholder {
+            color: gray;
+            font-family: "Roboto";
+            font-weight: 300;
+            font-size: 14px;
+            line-height: 16px;
+        }
+        &__search {
+            width: 172.12px;
+            height: 40px;
+            background: $button-backgraund;
+            border-radius: 40px;
+            border: none;
+            color: $text-color;
+            letter-spacing: 1px;
+            @include mobile {
+                width: 280px;
+            }
+        }
+    }
+}
+.line {
+    margin-top: 100px;
+    background: red;
+    height: 2px;
+    width: 100%;
+    @include mobile {
+        margin-top: 41px;
+    }
+}
+footer {
+    @include d-flex(flex, none, center);
+    width: 100%;
+    @include mobile {
+        align-items: center;
+    }
+    .content-footer {
+        @include d-flex(flex, none, none);
+        width: 940px;
+        margin-top: 35px;
+        @include tablet {
+            width: 687px;
+        }
+        @include mobile {
+            width: 300px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 18px;
+        }
+        &__logo {
+            width: 240px;
+            font-family: "Montserrat";
+            font-weight: 400;
+            font-size: 16px;
+            color: $button-backgraund;
+            @include tablet {
+                width: 390px;
+            }
+            @include mobile {
+                text-align: center;
+            }
+        }
+        &__company {
+            width: 240px;
+            @include tablet {
+                width: 295px;
+            }
+            @include mobile {
+                text-align: center;
+                display: flex;
+                align-items:center;
+                flex-direction: column;
+                margin-top: 5px;
+            }
+            p {
+                font-family: "Montserrat";
+                font-weight: bold;
+                font-size: 14px;
+                line-height: 28px;
+            }
+            ul {
+                margin: 0;
+                padding: 0;
+                @include mobile {
+                    margin-top: -7px;
+                  display: flex;
+                  flex-wrap: wrap;
+                justify-content: center;
+                  width: 200px;
+                 }
+            }
+            li {
+                color: #999999;
+                font-family: "Roboto";
+                font-weight: 300;
+                font-size: 14px;
+                margin-top: 8px;
+                list-style: none;
+                line-height: 18px;
+                @include mobile {
+                    margin-right:13px;
+                 }
+            }
+        }
+
+        &__partners {
+            width: 350px;
+            font-family: "Montserrat";
+            font-weight: bold;
+            font-size: 14px;
+            color: #444444;
+            line-height: 27px;
+            @include tablet {
+                width: 320px;
+            }
+            @include mobile {
+               text-align: center;
+               margin-top: 5px;
+             }
+        }
+        &__designet {
+            @include tablet {
+                width: 180px;
+            }
+            @include mobile {
+               display: flex;
+               justify-content: center;
+               align-items:center;
+               flex-direction: column;
+             }
+            p {
+                text-align: end;
+                color: grey;
+                font-family: "Montserrat";
+                font-weight: 700;
+                font-size: 10px;
+                line-height: 25px;
+                @include tablet {
+                    letter-spacing: 0.8px;
+                    color: rgba(128, 128, 128, 0.515);
+                }
+                @include mobile {
+                   text-align: center;
+                 }
+            }
+            img{
+                @include mobile {
+                   height: 30px;
+                   width: 120px;
+                 }
             }
         }
     }
