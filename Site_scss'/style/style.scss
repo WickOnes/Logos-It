@@ -3,10 +3,9 @@
 @import "base/variable";
 @import "base/font";
 
-body {
+body{
     @include d-flex(flex, center, center);
 }
-
 .content {
     margin-top: 51px;
     width: 1440px;
@@ -25,7 +24,7 @@ body {
     height: 700px;
     background-image: url(../img/HeadaerandPromo.png);
     background-position: center;
-    @include d-flex(flex, center, none);
+    @include d-flex(flex, center, center);
     flex-direction: column;
     @include mobile {
         height: 540px;
@@ -150,6 +149,7 @@ body {
         width: 768px;
     }
     @include mobile {
+        width: 300px;
         margin-top: 25px;
     }
     &__title {
@@ -270,6 +270,7 @@ body {
         width: 768px;
     }
     @include mobile {
+        width: 300px;
         margin-top: 20px;
     }
 
@@ -574,6 +575,7 @@ body {
         margin-top: 18px;
         width: 480px;
         @include mobile {
+            width: 300px;
             align-items: center;
             flex-direction: column;
             height: 90px;

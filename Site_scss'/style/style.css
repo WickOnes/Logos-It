@@ -115,7 +115,7 @@ body {
   background-position: center;
   display: flex;
   align-items: center;
-  justify-content: none;
+  justify-content: center;
   flex-direction: column;
 }
 @media (max-width: 450px) {
@@ -263,6 +263,7 @@ body {
 }
 @media (max-width: 450px) {
   .main {
+    width: 300px;
     margin-top: 25px;
   }
 }
@@ -427,6 +428,7 @@ body {
 }
 @media (max-width: 450px) {
   .partner {
+    width: 300px;
     margin-top: 20px;
   }
 }
@@ -812,6 +814,7 @@ body {
 }
 @media (max-width: 450px) {
   .create__input-block {
+    width: 300px;
     align-items: center;
     flex-direction: column;
     height: 90px;
