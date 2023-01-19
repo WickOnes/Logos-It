@@ -26,25 +26,32 @@ switch (number) {
 }
 
 function isPrime(n) {
-  n = prompt('Введіть число і дивись консоль')
-  if (n % 2 != 0) {
-    console.log('введене простe число')
+  let num
+  if (n > 1) {
+    for (let i = 2; i < n; i++) {
+      if (n % i == 0) {
+        num = 0
+      }
+    }
+    if (num == 0) {
+      console.log('Число - складене')
+    } else {
+      console.log('Число - просте')
+    }
   } else {
-    console.log('ERROR!!')
+    console.log('Число має бути більше 1')
   }
 }
-isPrime()
+isPrime(prompt('Введіть число більше 1 і дивись консоль'))
 
 function maxNumber(...arg) {
-  arg = prompt('Введіть мінімум 2 числа "-5,10"').split(',')
-
   let max = arg[0]
   for (let i = 0; i < arg.length; i++) {
     if (max < arg[i]) {
       max = arg[i]
     }
   }
-
-  alert(`Максимальне число  ${max}`)
+  console.log(arg)
+  console.log(`Максимальне число  ${max}`)
 }
-maxNumber()
+maxNumber(5, -2, 30, 6)
